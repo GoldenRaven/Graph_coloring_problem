@@ -17,6 +17,8 @@ for node in range(node_num):
             bond[node].append(grow[line_num][1])
         elif grow[line_num][1] == node:
             bond[node].append(grow[line_num][0])
+# for i in range(len(bond)):
+#     print(bond[i])
 #depth of node
 depth = [len(bond[i])-1 for i in range(node_num)]
 #count depth num, (depth, num of depth)
@@ -27,12 +29,12 @@ acumulate_depth = [(j, len([i for i in depth if i >= j])) for j in range(max_dep
 #possible closed graph, color num = possible_counts + 1
 possible_counts = [acumulate_depth[i][0] for i in range(len(acumulate_depth)) if acumulate_depth[i][0] < acumulate_depth[i][1]]
 possible_counts.reverse()
-#descending order, half-divide
 color_num_up = possible_counts[0] + 1
 if side_num != 0:
     color_num_down = 2
 else:
     color_num_down = 1
+#descending order, half-divide
 color_num = int((color_num_up+color_num_down)/2)
 print("color num start with ", color_num)
 # print(color_num_up,color_num_down,color_num)
@@ -40,6 +42,8 @@ while 1:
     print("up limit = ", color_num_up, " down limit = ",color_num_down , " testing ", color_num)
     #pick node whose depth >= color_num -1
     candidate = [bond[i] for i in range(len(bond)) if depth[i] >= color_num-1]
+    # for i in range(len(candidate)):
+    #     print(candidate[i])
     #pick those showing time >= color_num, restore their index
     index = []
     for i in range(len(candidate)):
@@ -56,19 +60,22 @@ while 1:
                 common = list(set(candidate[i]) & set(candidate[j]))
                 if len(common) >= color_num :
                     commons.append(common)
-        #count repeat times in commons, if count >= color_num, exist!
-        exist =  0
+        # for i in range(len(commons)):
+        #     print(commons[i])
+        #count repeat times in commons, if count >= color_num, closed!
+        closed =  0
         for i in range(len(commons)):
             count = 0
             for j in range(len(commons)):
                 if list(set(commons[i]) & set(commons[j])) == commons[i]:
                     count = count + 1
             comb_num = comb(color_num, 2)
-            if count >= comb_num:
+            # if count >= comb_num:
+            if count >= color_num:
                 # print(commons[i], " appear ", count, " times")
-                exist = 1
+                closed = 1
                 break
-        if exist:
+        if closed:
             color_num_down = color_num
             if color_num_up - color_num <= 3:
                 color_num = color_num + 1
