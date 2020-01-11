@@ -78,7 +78,7 @@ while 1:
     #terminate condition
     if color_num - color_num_down == 1 :
         color_num = color_num_down
-        print("color num = ", color_num)
+        print("min color num = ", color_num_down)
         exit(0)
     color_num_up = color_num
     if color_num - color_num_down <= 3:
