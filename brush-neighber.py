@@ -26,6 +26,7 @@ max_depth = max(depth)
 count_depth = [(i, depth.count(i)) for i in range(max_depth+1)]
 #(depth, num of nodes whose depth >= depth)
 acumulate_depth = [(j, len([i for i in depth if i >= j])) for j in range(max_depth+1)]
+# print(acumulate_depth)
 #possible closed graph, color num = possible_counts + 1
 possible_counts = [acumulate_depth[i][0] for i in range(len(acumulate_depth)) if acumulate_depth[i][0] < acumulate_depth[i][1]]
 possible_counts.reverse()
@@ -34,6 +35,10 @@ if side_num != 0:
     color_num_down = 2
 else:
     color_num_down = 1
+if color_num_up == color_num_down:
+    color_num = color_num_down
+    print("min color num = ", color_num_down)
+    exit(0)
 #descending order, half-divide
 color_num = int((color_num_up+color_num_down)/2)
 print("color num start with ", color_num)
@@ -70,8 +75,8 @@ while 1:
                 if list(set(commons[i]) & set(commons[j])) == commons[i]:
                     count = count + 1
             comb_num = comb(color_num, 2)
-            # if count >= comb_num:
-            if count >= color_num:
+            if count >= comb_num:
+            # if count >= color_num:
                 # print(commons[i], " appear ", count, " times")
                 closed = 1
                 break
