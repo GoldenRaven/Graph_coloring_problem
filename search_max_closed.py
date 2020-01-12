@@ -90,7 +90,31 @@ while 1:
     #terminate condition
     if color_num - color_num_down == 1 :
         color_num = color_num_down
+        if color_num == 2:
+            toend = 1
+            #check whether the chain can be fill by two colors
+            chain = []
+            chain.append(0)#first node filled with color 0
+            chain.append(1)#second node filled with color 0
+            for i in range(2,node_num):
+                position = i
+                left_bond = [x for x in bond[i] if x < i]
+                left_color = [chain[x] for x in left_bond]
+                if len(left_color) == 0:
+                    color = 0
+                elif left_color.count(left_color[0]) == len(left_color):
+                    color = not left_color[0]
+                else:
+                    toend = 0
+                    break
+                chain.append(color)
+            if not toend :
+                color_num =  3#odd number of node head to tail connected
+        #print minimum color number
         print("min color num = ", color_num_down)
+        # for i in range(len(commons)):
+        #     # if count >= color_num:
+        #     print(commons[i], " appear ", count, " times")
         exit(0)
     color_num_up = color_num
     if color_num - color_num_down <= 3:
