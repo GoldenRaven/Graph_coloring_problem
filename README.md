@@ -11,7 +11,7 @@ These are some ideas i came to realize maybe possible to solve this problem, but
 3. Keep growing until no common nodes found.
 4. The number of nodes of `closed` graph in last step gives color number.
 ### Method of this repository
-0. The color number is determined by the max closed nodes. Define `closed`: several nodes, connected to each other, eg. triangle.
+0. The color number is determined by the max closed nodes. Define `closed`: several nodes, connected to each other, eg. triangle. One more rule: the min color number of a colsed circle chain with even nodes is 2, but 3 for a closed chain with odd nodes.
 1. Get the depth of every node. Get nodes that every node connected to, and restore them into `bonds`.
 2. Count node depth, get the max possible color num.
 3. For a color num, find common elements of every two lines in the 2D array `bonds`.
