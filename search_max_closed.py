@@ -40,8 +40,7 @@ if color_num_up == color_num_down:
     print("min color num = ", color_num_down)
     exit(0)
 #descending order, half-divide
-# color_num = int((color_num_up+color_num_down)/2)
-color_num = 3
+color_num = int((color_num_up+color_num_down)/2)
 print("color num start with ", color_num)
 # print(color_num_up,color_num_down,color_num)
 while 1:
