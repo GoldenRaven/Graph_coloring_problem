@@ -40,7 +40,8 @@ if color_num_up == color_num_down:
     print("min color num = ", color_num_down)
     exit(0)
 #descending order, half-divide
-color_num = int((color_num_up+color_num_down)/2)
+# color_num = int((color_num_up+color_num_down)/2)
+color_num = 3
 print("color num start with ", color_num)
 # print(color_num_up,color_num_down,color_num)
 while 1:
@@ -103,13 +104,20 @@ while 1:
                 if len(left_color) == 0:
                     color = 0
                 elif left_color.count(left_color[0]) == len(left_color):
-                    color = not left_color[0]
+                    if left_color[0] == 0:
+                        color = 1
+                    elif left_color[0] == 1:
+                        color = 0
                 else:
+                    print("not to end, position = ", position)
                     toend = 0
                     break
                 chain.append(color)
             if not toend :
-                color_num =  3#odd number of node head to tail connected
+                color_num_down =  3#odd number of node head to tail connected
+                print("not toend")
+            else:
+                print("chain: ", chain)
         #print minimum color number
         print("min color num = ", color_num_down)
         # for i in range(len(commons)):
