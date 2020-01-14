@@ -1,5 +1,44 @@
-gc_4_1 2
-gc_20_1 3
-gc_50_5 5
-gc_50_7 4
-gc_100_5 2
+gc_100_5  :
+color num start with  26
+up limit =  51  down limit =  2  testing  26
+up limit =  26  down limit =  2  testing  14
+up limit =  14  down limit =  2  testing  8
+up limit =  8  down limit =  2  testing  5
+up limit =  5  down limit =  2  testing  4
+up limit =  4  down limit =  2  testing  3
+min color num =  3
+
+gc_20_1  :
+color num start with  3
+up limit =  4  down limit =  2  testing  3
+up limit =  4  down limit =  3  testing  4
+min color num =  3
+
+gc_4_1  :
+min color num =  2
+
+gc_50_5  :
+color num start with  13
+up limit =  25  down limit =  2  testing  13
+up limit =  13  down limit =  2  testing  7
+up limit =  7  down limit =  2  testing  4
+up limit =  7  down limit =  4  testing  5
+up limit =  7  down limit =  5  testing  6
+min color num =  5
+
+gc_50_7  :
+color num start with  18
+up limit =  35  down limit =  2  testing  18
+up limit =  18  down limit =  2  testing  10
+up limit =  10  down limit =  2  testing  6
+up limit =  6  down limit =  2  testing  4
+up limit =  6  down limit =  4  testing  5
+min color num =  4
+
+gc_7  :
+color num start with  3
+up limit =  5  down limit =  2  testing  3
+up limit =  5  down limit =  3  testing  4
+up limit =  5  down limit =  4  testing  5
+min color num =  4
+

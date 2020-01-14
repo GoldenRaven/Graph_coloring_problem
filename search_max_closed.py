@@ -31,6 +31,7 @@ acumulate_depth = [(j, len([i for i in depth if i >= j])) for j in range(max_dep
 possible_counts = [acumulate_depth[i][0] for i in range(len(acumulate_depth)) if acumulate_depth[i][0] < acumulate_depth[i][1]]
 possible_counts.reverse()
 color_num_up = possible_counts[0] + 1
+# print(color_num_up)
 if side_num != 0:
     color_num_down = 2
 else:
@@ -85,7 +86,7 @@ while 1:
             # if count >= color_num:
                 max_closed = commons[i]
                 times = count
-                print(max_closed, " appear ", times, " times")
+                # print(max_closed, " appear ", times, " times")
                 closed = 1
                 # print(count, comb_num)
                 break
@@ -117,13 +118,14 @@ while 1:
                     elif left_color[0] == 1:
                         color = 0
                 else:
-                    print("not to end, position = ", position)
+                    # print("not to end, position = ", position)
                     toend = 0
                     break
                 chain.append(color)
             if not toend :
-                color_num_down =  3#odd number of node head to tail connected
-                print("not toend")
+                color_num_down = 3#odd number of node head to tail connected
+                color_num = color_num_down
+                # print("not toend")
             else:
                 print("chain: ", chain)
         #print minimum color number
@@ -131,7 +133,7 @@ while 1:
         # for i in range(len(commons)):
             # print(commons[i])
         # print(count_commons)
-        print(max_closed, " appear ", times, " times")
+        # print(max_closed, " appear ", times, " times")
         exit(0)
     color_num_up = color_num
     if color_num - color_num_down <= 3:

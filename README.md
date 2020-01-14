@@ -22,3 +22,5 @@ The color number is determined by the max closed nodes. Define `closed`: several
 6. If not exist, decrease `color num` and  repeat `step 3, 4, 5, 6`.
 7. If the difference between the successive `color num` is 1, exit the recycle.
 8. The minimal color number is given by the last two `color num` accordingly.
+## test methods
+Run file test.bash in bash to test algorithm.
