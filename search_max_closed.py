@@ -53,8 +53,10 @@ while 1:
     index = []
     for i in range(len(candidate)):
         count = sum([x.count(candidate[i][0]) for x in candidate])
+        # print([x.count(candidate[i][0]) for x in candidate])
         if count >= color_num:
             index.append(i)
+    # print(index)
     if len(index) >= color_num:
         # check whether closed or not?
         # print("pick ", color_num, "nodes in ", len(index), " nodes")
@@ -66,26 +68,33 @@ while 1:
                 if len(common) >= color_num :
                     commons.append(common)
         # for i in range(len(commons)):
-        #     print(commons[i])
-        #count repeat times in commons, if count >= color_num, closed!
+            # print(commons[i])
+        #count repeat times in commons
+        # count_commons = []
         closed =  0
+        # print(len(commons))
         for i in range(len(commons)):
             count = 0
             for j in range(len(commons)):
                 if list(set(commons[i]) & set(commons[j])) == commons[i]:
                     count = count + 1
+            # count_commons.append(count)
+            # print(count)
             comb_num = comb(color_num, 2)
-            if count >= comb_num:
+            if count >= comb_num:#if count >= comb_num, closed!
             # if count >= color_num:
-                # print(commons[i], " appear ", count, " times")
+                max_closed = commons[i]
+                times = count
+                print(max_closed, " appear ", times, " times")
                 closed = 1
+                # print(count, comb_num)
                 break
         if closed:
             color_num_down = color_num
-            if color_num_up - color_num <= 3:
-                color_num = color_num + 1
+            if color_num_up - color_num_down <= 3:
+                color_num = color_num_down + 1
             else:
-                color_num = int((color_num+color_num_up)/2)
+                color_num = int((color_num_down+color_num_up)/2)
             continue
     #terminate condition
     if color_num - color_num_down == 1 :
@@ -118,10 +127,11 @@ while 1:
             else:
                 print("chain: ", chain)
         #print minimum color number
-        print("min color num = ", color_num_down)
+        print("min color num = ", color_num)
         # for i in range(len(commons)):
-        #     # if count >= color_num:
-        #     print(commons[i], " appear ", count, " times")
+            # print(commons[i])
+        # print(count_commons)
+        print(max_closed, " appear ", times, " times")
         exit(0)
     color_num_up = color_num
     if color_num - color_num_down <= 3:
