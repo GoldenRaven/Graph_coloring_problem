@@ -77,14 +77,3 @@ while 1:
         print(max(color_nodeorder)+1)
         print(color_nodeorder)
         exit(0)
-
-color[depth[1]] = 1
-# print([x. for x in sorted(depth.values())])
-exit(0)
-# [sorted([x for x in depth.])]
-# [depth[i][o] for i in ]
-#sort by depth
-# print(bond.len())
-# depth_sorted = sorted(bond)
-# depth_sorted.reverse()
-# print(depth_sorted)
